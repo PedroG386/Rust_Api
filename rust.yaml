@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rust-d
+  labels:
+    estado: "1"
+spec:
+  selector:
+    matchLabels:
+      app: rust
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: rust
+    spec:
+      containers:
+      - name: rust 
+        image: pery11/rustperykube:latest
+        ports:
+        - containerPort: 80
